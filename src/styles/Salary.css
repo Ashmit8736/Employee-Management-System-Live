@@ -5,12 +5,16 @@
 .admin-dashboard-layout {
   display: flex;
   min-height: 100vh;
-  
 }
 
+/* Desktop layout with sidebar */
 .adm-main-content {
   flex: 1;
   padding: 24px;
+  margin-left: 250px;              /* Sidebar width */
+  margin-top: 52px;                /* Top navbar height */
+  width: calc(100% - 250px);
+  box-sizing: border-box;
 }
 
 /* =============================
@@ -18,10 +22,14 @@
 ============================= */
 
 .adm-main-content h2 {
-  margin-bottom: 20px;
+  margin: 0 0 0px 0;
   color: #1e293b;
   font-size: 22px;
   font-weight: 600;
+}
+h2{
+  padding-top: 20px;
+  padding-left: 12px;
 }
 
 /* =============================
@@ -33,7 +41,7 @@
   flex-wrap: wrap;
   gap: 12px;
   margin-bottom: 24px;
-    background-image: linear-gradient(-225deg, #FFFEFF 0%, #D7FFFE 100%);
+  background-image: linear-gradient(-225deg, #FFFEFF 0%, #D7FFFE 100%);
   padding: 16px;
   border-radius: 8px;
 }
@@ -45,6 +53,8 @@
   border-radius: 6px;
   min-width: 180px;
   font-size: 14px;
+  flex: 1;
+ 
 }
 
 .salary-form button {
@@ -55,6 +65,7 @@
   border-radius: 6px;
   cursor: pointer;
   font-size: 14px;
+  transition: 0.2s ease;
 }
 
 .salary-form button:hover {
@@ -62,14 +73,34 @@
 }
 
 /* =============================
-   TABLE
+   TABLE CONTAINER
 ============================= */
 
+.adm-table-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
 
+/* Scrollbar styling */
+.adm-table-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.adm-table-container::-webkit-scrollbar-thumb {
+  background: #2563eb;
+  border-radius: 10px;
+}
+
+/* =============================
+   TABLE
+============================= */
 
 .adm-table {
   width: 100%;
   border-collapse: collapse;
+  min-width: 600px; /* forces horizontal scroll on small screens */
+  
 }
 
 .adm-table thead {
@@ -88,4 +119,55 @@
   border-bottom: 1px solid #e5e7eb;
 }
 
+.adm-table tbody tr:hover {
+  background-color: #1a5c9e;
+}
 
+/* =============================
+   TABLE EMPTY ROW CENTER FIX
+============================= */
+
+.adm-table td[colspan] {
+  text-align: center;
+  padding: 20px;
+}
+
+/* =============================
+   MOBILE RESPONSIVE
+============================= */
+
+@media (max-width: 768px) {
+
+  .adm-main-content {
+    margin-left: 0;
+    margin-top: 104px;      /* 52 + 52 header */
+    width: 100%;
+    padding: 16px;
+  }
+
+  .salary-form {
+    flex-direction: column;
+  }
+
+  .salary-form select,
+  .salary-form input,
+  .salary-form button {
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .adm-table {
+    min-width: 500px;
+  }
+
+  .adm-table th,
+  .adm-table td {
+    font-size: 12px;
+    padding: 8px;
+    white-space: nowrap;
+  }
+
+}

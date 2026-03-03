@@ -3,17 +3,23 @@
 ================================ */
 .page {
   padding: 20px;
-  
   min-height: 100vh;
   margin-left: 250px;
-  margin-top: 50px;
-  width: 100%;
+  margin-top: 52px;   /* navbar height */
+  width: calc(100% - 250px);
+  box-sizing: border-box;
 }
 
 .page h2 {
   margin-bottom: 16px;
   color: #0f172a;
   font-size: 22px;
+  
+}
+
+h2{
+  padding-top: 20px;
+  padding-left: 12px;
 }
 
 /* ===============================
@@ -22,10 +28,12 @@
 .table-container {
   width: 100%;
   overflow-x: auto;
-      background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+  -webkit-overflow-scrolling: touch;  /* smooth scroll mobile */
   border-radius: 8px;
   padding: 10px;
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
 }
+
 
 /* ===============================
    TABLE
@@ -33,7 +41,7 @@
 table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 600px;
+  min-width: 700px;
 }
 
 thead {
@@ -92,11 +100,19 @@ button {
   background-color: #dc2626;
 }
 
+.task-section table {
+  min-width: 800px;
+}
+
+
 /* ===============================
    RESPONSIVE (TABLET)
 ================================ */
 @media (max-width: 768px) {
-  .page {
+   .page {
+    margin-left: 0;
+    margin-top: 104px;   /* 52 + 52 */
+    width: 100%;
     padding: 15px;
   }
 
@@ -112,7 +128,8 @@ button {
 ================================ */
 @media (max-width: 480px) {
   .page h2 {
-    font-size: 18px;
+    font-size: 20px;
+    margin-top: 0px;
   }
 
   table {
@@ -123,6 +140,7 @@ button {
   td {
     font-size: 12px;
     padding: 8px;
+    white-space: nowrap;
   }
 }
 
@@ -208,3 +226,15 @@ button {
 }
 
 
+@media (max-width: 768px) {
+
+  .task-form {
+    flex-direction: column;
+  }
+
+  .task-form input,
+  .task-form button {
+    width: 100%;
+  }
+
+}

@@ -138,7 +138,7 @@ const AdminDashboard = () => {
 
       <main className="adm-main-content">
         <header>
-          <h1>Welcome Admin</h1>
+          <h2>Welcome Admin</h2>
         </header>
 
         {/* ================= ALERT ================= */}

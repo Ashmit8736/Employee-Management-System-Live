@@ -152,7 +152,7 @@
     height: auto;
     flex-direction: column;      /* 🔥 MOBILE ONLY */
     align-items: stretch;
-    padding: 12px 20px;
+    padding: 13px 20px;
   }
 
   .nav-top {

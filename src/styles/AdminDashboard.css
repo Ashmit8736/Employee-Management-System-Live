@@ -18,6 +18,11 @@
     min-height: 100vh;
 }
 
+h1{
+  padding-top: 20px;
+  padding-left: 12px;
+}
+
 
 
 /* ===============================
@@ -80,12 +85,15 @@
    TABLE
 ================================ */
 .adm-table-container {
-
     padding: 1.5rem;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+
+    overflow-x: auto;     /* 🔥 IMPORTANT */
+    scrollbar-width: thin;
 }
+
 
 .adm-table-container h2 {
     font-size: 1.2rem;
@@ -95,10 +103,11 @@
 
 .adm-table {
     width: 100%;
+    min-width: 900px;  /* 🔥 ensures scroll on mobile */
     border-collapse: collapse;
     margin-top: 1rem;
-    
 }
+
 
 .adm-table th {
      background-image: linear-gradient(to right, #f83600 0%, #f9d423 100%);
@@ -257,20 +266,15 @@
   background: #fee2e2;
   color: #991b1b;
 }
+
+
 @media (max-width: 768px) {
     .adm-dashboard-layout {
         flex-direction: column; /* stack sidebar on top of content */
     }
 
-    .adm-sidebar {
-        width: 100%;        /* full width */
-        height: auto;       /* let content decide height */
-        position: relative; /* remove fixed */
-        flex-direction: row;
-        align-items: center;
-        padding: 10px 15px;
-        overflow-x: auto;
-    }
+    
+
 
     .profile-section {
         flex-direction: row;
